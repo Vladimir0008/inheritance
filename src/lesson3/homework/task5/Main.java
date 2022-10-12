@@ -2,8 +2,8 @@ package lesson3.homework.task5;
 
 public class Main {
     public static void main(String[] args) {
-        Animal dog  = new Dog();
-        Animal cat  = new Cat();
+        Animal dog = new Dog("Bobik");
+        Animal cat = new Cat("Tom");
         dog.run(500);
         dog.run(-1000);
         dog.run(1000);
@@ -23,6 +23,7 @@ public class Main {
 
         Animal dog2 = new Dog();
         Dog dog3 = new Dog();
+        dog3.run(400);
         System.out.println("We created " + Cat.getCatCount() + " cats.");
         System.out.println("We created " + Dog.getDogCount() + " dogs");
     }
