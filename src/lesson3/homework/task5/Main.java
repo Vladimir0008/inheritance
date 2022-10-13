@@ -1,30 +1,56 @@
 package lesson3.homework.task5;
 
+import lesson3.homework.task5.exception.DistanceException;
+import lesson3.homework.task5.exception.SwimmingException;
+
 public class Main {
     public static void main(String[] args) {
-        Animal dog = new Dog("Bobik");
+
+        Animal dog = new Dog();
         Animal cat = new Cat("Tom");
-        dog.run(500);
-        dog.run(-1000);
-        dog.run(1000);
-        dog.swim(10);
-        dog.swim(100);
-        dog.swim(-10);
 
-        cat.run(1000);
-        cat.run(100);
-        cat.run(-100);
+        try {
+            dog.run(500);
+        } catch (DistanceException e) {
+            System.err.println(e.getMessage());
+        }
 
-        cat.swim(100);
+        try {
+            dog.run(-1000);
+        } catch (DistanceException e) {
+            System.err.println(e.getMessage());
+        }
+
+        try {
+            dog.run(1000);
+        } catch (DistanceException e) {
+            System.err.println(e.getMessage());
+        }
+
+        try {
+            dog.swim(10);
+        } catch (DistanceException | SwimmingException e) {
+            System.err.println(e.getMessage());
+        }
+
+        try {
+            cat.swim(-100);
+        } catch (DistanceException | SwimmingException e) {
+            System.err.println(e.getMessage());
+        }
+
+        try {
+            dog.swim(-10);
+        } catch (DistanceException | SwimmingException e) {
+            System.err.println(e.getMessage());
+        }
 
         Cat cat2 = new Cat();
         Animal cat3 = new Cat();
         Cat cat4 = new Cat();
 
-        Animal dog2 = new Dog();
-        Dog dog3 = new Dog();
-        dog3.run(400);
-        System.out.println("We created " + Cat.getCatCount() + " cats.");
-        System.out.println("We created " + Dog.getDogCount() + " dogs");
+        System.out.println("We created " + Cat.getInstanceCount() + " cats.");
+        System.out.println("We created " + Dog.getInstanceCount() + " dogs");
+        System.out.println("We created " + Animal.getInstanceCount() + " animals");
     }
 }
