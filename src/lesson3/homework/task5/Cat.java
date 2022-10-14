@@ -3,6 +3,8 @@ package lesson3.homework.task5;
 import lesson3.homework.task5.exception.DistanceException;
 import lesson3.homework.task5.exception.SwimmingException;
 
+import java.util.Formatter;
+
 public class Cat extends Animal {
 
 
@@ -35,8 +37,9 @@ public class Cat extends Animal {
         if (distance > 200 || distance <= 1) {
             throw new DistanceException("Distance is incorrect");
         }
-
-        System.out.printf("Cat %s have run " + distance + " m\n", (getName() == null ? "" : getName()));
+        Formatter formatter = new Formatter()
+                .format("Cat %s have run " + distance + " m\n", getName());
+        System.out.println(formatter.toString());
     }
 
 

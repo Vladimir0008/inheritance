@@ -2,6 +2,8 @@ package lesson3.homework.task5;
 
 import lesson3.homework.task5.exception.DistanceException;
 
+import java.util.Formatter;
+
 public class Dog extends Animal {
 
 
@@ -34,14 +36,18 @@ public class Dog extends Animal {
         if (distance > 500 || distance <= 1) {
             throw new DistanceException("Distance is incorrect");
         }
-        System.out.printf("Dog %s have run " + distance + " m\n", (getName() == null ?"": getName()));
+        Formatter formatter = new Formatter()
+                .format("Dog %s have run " + distance + " m", getName());
+        System.out.println(formatter.toString());
 
     }
 
     public void swim(int distance) throws DistanceException {
-        if (distance > 10 || distance <=0) {
+        if (distance > 10 || distance <= 0) {
             throw new DistanceException("Distance is incorrect");
         }
-        System.out.printf("Dog %s have swum " + distance + " m\n", (getName()== null ?"": getName()));
+        Formatter formatter = new Formatter()
+                .format("Dog %s have swum " + distance + " m", getName());
+        System.out.println(formatter.toString());
     }
 }
